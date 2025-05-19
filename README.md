@@ -55,6 +55,6 @@ Dependency Injection: Clean separation of concerns between services, repositorie
 Contact
 For questions or feedback, reach out to:
 
-Your Name - weso2020@icloud.com
+Email - weso2020@icloud.com
 
 GitHub Profile - https://github.com/Mahmoud-Elwesemy
