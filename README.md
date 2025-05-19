@@ -27,13 +27,21 @@ Background Services - Automated cleanup of expired temporal blocks.
 
 API Endpoints
 Endpoint	Method	Description
+
 /api/countries/block	POST	Block a country by its code (e.g., "US").
+
 /api/countries/block/{code}	DELETE	Unblock a country.
+
 /api/countries/blocked	GET	Get all blocked countries (paginated).
+
 /api/countries/temporal-block	POST	Temporarily block a country.
+
 /api/ip/lookup	GET	Get country details by IP address.
+
 /api/ip/check-block	GET	Check if the caller's IP is blocked.
+
 /api/logs/blocked-attempts	GET	Get logs of blocked attempts (paginated).
+
 
 Architecture
 In-Memory Storage: Uses ConcurrentDictionary and ConcurrentBag for thread-safe operations.
