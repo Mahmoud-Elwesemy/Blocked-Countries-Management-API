@@ -8,6 +8,9 @@ using Countries.Core.Domin.Repositories.contract;
 using Countries.Core.Domin.UnitOfWork.Contract;
 using Countries.Infrastructure.Presistence.Repositories;
 using Countries.Infrastructure.Presistence.UnitOfWork;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
 namespace Countries.APIs
 {
     public class Program
@@ -25,11 +28,13 @@ namespace Countries.APIs
             {
                 client.BaseAddress = new Uri(builder.Configuration["GeoLocationApi:BaseUrl"]);
             });
-            builder.Services.AddScoped<IUnitOfWork,UnitOfWork>();
-            builder.Services.AddScoped<ICountryRepositories,CountryRepositories>();
+
+            builder.Services.AddScoped(typeof(ICountryRepositories),typeof(CountryRepositories));
+            builder.Services.AddScoped(typeof(IUnitOfWork),typeof(UnitOfWork));
             builder.Services.AddScoped(typeof(IServiceManager),typeof(ServiceManager));
 
             builder.Services.AddHostedService<TemporalBlockService>();
+
             #endregion
 
             var app = builder.Build();
